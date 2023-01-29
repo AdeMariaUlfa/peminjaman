@@ -1,7 +1,7 @@
 @extends('layouts.template')
 @section('content')
  <!-- Navbar -->
- <div class="card">
+
   <nav class="navbar navbar-main navbar-expand-lg px-0 mx-4 shadow-none border-radius-xl" id="navbarBlur" navbar-scroll="true">
       <div class="container-fluid py-1 px-3">
         <nav aria-label="breadcrumb">
@@ -29,8 +29,10 @@
     </nav>
     <!-- End Navbar -->
     <div class="container-fluid py-4">
-      <div class="row">
-      <h3>Form Ajukan Peminjaman Fasilitas</h3>
+      <div class="card mb-4">
+            <div class="card-header pb-0 text-center">
+              <h4>Form Ajukan Peminjaman Fasilitas</h4>
+            </div><br>
       <div class="card-body">
                   <form role="form">
                     <label>Nama Lengkap*</label>
@@ -106,5 +108,4 @@
         </div>
       </footer>
     </div>
-</div>
     @endsection

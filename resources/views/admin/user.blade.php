@@ -1,4 +1,4 @@
-@extends('layouts.template')
+@extends('layouts.template-admin')
 @section('content')
  <!-- Navbar -->
   <nav class="navbar navbar-main navbar-expand-lg px-0 mx-4 shadow-none border-radius-xl" id="navbarBlur" navbar-scroll="true">
@@ -6,9 +6,9 @@
         <nav aria-label="breadcrumb">
           <ol class="breadcrumb bg-transparent mb-0 pb-0 pt-1 px-0 me-sm-6 me-5">
             <li class="breadcrumb-item text-sm"><a class="opacity-5 text-dark" href="javascript:;">Pages</a></li>
-            <li class="breadcrumb-item text-sm text-dark active" aria-current="page">Status Peminjaman</li>
+            <li class="breadcrumb-item text-sm text-dark active" aria-current="page">User</li>
           </ol>
-          <h6 class="font-weight-bolder mb-0">Status Peminjaman</h6>
+          <h6 class="font-weight-bolder mb-0">Rekap Tabel User</h6>
         </nav>
         <div class="collapse navbar-collapse mt-sm-0 mt-2 me-md-0 me-sm-4" id="navbar">
           <div class="ms-md-auto pe-md-3 d-flex align-items-center">
@@ -28,9 +28,9 @@
     </nav>
     <!-- End Navbar -->
     <div class="container-fluid py-4">
-      <div class="card mb-4">
+    <div class="card mb-4">
             <div class="card-header pb-0 text-center">
-              <h4>Tabel Status Peminjaman Fasilitas</h4>
+              <h4>Tabel User</h4>
             </div><br>
                 <table class="table align-items-center mb-0">
                   <thead>
@@ -39,6 +39,7 @@
                       <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Fasilitas Yang Dipinjam</th>
                       <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Status</th>
                       <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Tanggal Peminjaman</th>
+                      <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7"></th>
                     </tr>
                   </thead>
                   <tbody>
@@ -61,6 +62,9 @@
                       <td class="align-middle text-center">
                         <span class="text-secondary text-xs font-weight-bold">23/04/18</span>
                       </td>
+                      <td class="align-middle text-center">
+                      <a href="path_to_file" download="proposed_file_name">Download</a>
+                      </td>
                     </tr>
                     <tr>
                       <td>
@@ -80,6 +84,9 @@
                       </td>
                       <td class="align-middle text-center">
                         <span class="text-secondary text-xs font-weight-bold">11/01/19</span>
+                      </td>
+                      <td class="align-middle text-center">
+                      <a href="path_to_file" download="proposed_file_name">Download</a>
                       </td>
                       </tr>
                     <tr>
@@ -101,6 +108,9 @@
                       <td class="align-middle text-center">
                         <span class="text-secondary text-xs font-weight-bold">19/09/17</span>
                       </td>
+                      <td class="align-middle text-center">
+                      <a href="path_to_file" download="proposed_file_name">Download</a>
+                      </td>
                       </tr>
                     <tr>
                       <td>
@@ -120,6 +130,9 @@
                       </td>
                       <td class="align-middle text-center">
                         <span class="text-secondary text-xs font-weight-bold">24/12/08</span>
+                      </td>
+                      <td class="align-middle text-center">
+                      <a href="path_to_file" download="proposed_file_name">Download</a>
                       </td>
                       </tr>
                     <tr>
@@ -141,6 +154,9 @@
                       <td class="align-middle text-center">
                         <span class="text-secondary text-xs font-weight-bold">04/10/21</span>
                       </td>
+                      <td class="align-middle text-center">
+                      <a href="path_to_file" download="proposed_file_name">Download</a>
+                      </td>
                       </tr>
                     <tr>
                       <td>
@@ -161,11 +177,14 @@
                       <td class="align-middle text-center">
                         <span class="text-secondary text-xs font-weight-bold">14/09/20</span>
                       </td>
+                      <td class="align-middle text-center">
+                      <a href="path_to_file" download="proposed_file_name">Download</a>
+                      </td>
                      </tr>
                   </tbody>
                 </table>
-</div>
-</div>
+              </div>
+      </div>
       <br><br>
 
       <footer class="footer pt-3  ">

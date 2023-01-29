@@ -33,3 +33,25 @@ Route::get('/history', function () {
 Route::get('/profile', function () {
     return view('user/profile');
 });
+
+Route::get('/dashboard', function () {
+    return view('admin/dashboard');
+});
+Route::get('/tabel-fasilitas', function () {
+    return view('admin/fasilitas');
+});
+Route::get('/tambah-fasilitas', function () {
+    return view('admin/tambah-fasilitas');
+});
+Route::get('/pengajuan', function () {
+    return view('admin/pengajuan');
+});
+Route::get('/rekap', function () {
+    return view('admin/rekap');
+});
+Route::get('/user', function () {
+    return view('admin/user');
+});
+Route::get('/profile-admin', function () {
+    return view('admin/profile');
+});

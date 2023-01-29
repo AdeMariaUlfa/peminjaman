@@ -1,7 +1,6 @@
 @extends('layouts.template')
 @section('content')
  <!-- Navbar -->
- <div class="card">
   <nav class="navbar navbar-main navbar-expand-lg px-0 mx-4 shadow-none border-radius-xl" id="navbarBlur" navbar-scroll="true">
       <div class="container-fluid py-1 px-3">
         <nav aria-label="breadcrumb">
@@ -29,13 +28,10 @@
     </nav>
     <!-- End Navbar -->
     <div class="container-fluid py-4">
-      <div class="row">
-      <h3>Tabel History Peminjaman Fasilitas</h3><br><br><br>
-      <div class="row">
-        <div class="col-12">
-          <div class="card mb-4">
-            <div class="card-body px-0 pt-0 pb-2">
-              <div class="table-responsive p-0">
+    <div class="card mb-4">
+            <div class="card-header pb-0 text-center">
+              <h4>Tabel History Peminjaman Fasilitas</h4>
+            </div><br>
                 <table class="table align-items-center mb-0">
                   <thead>
                     <tr>
@@ -188,9 +184,6 @@
                   </tbody>
                 </table>
               </div>
-            </div>
-          </div>
-        </div>
       </div>
       <br><br>
 
@@ -210,5 +203,4 @@
         </div>
       </footer>
     </div>
-</div>
     @endsection
