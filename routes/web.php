@@ -1,6 +1,11 @@
 <?php
 
+use App\Http\Controllers\FasilitasController;
+use App\Http\Controllers\LoginController;
+use App\Http\Controllers\PeminjamanController;
 use Illuminate\Support\Facades\Route;
+
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -12,18 +17,11 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+
 Route::get('/register', function () {
     return view('register');
 });
-Route::get('/fasilitas', function () {
-    return view('user/fasilitas');
-});
-Route::get('/ajukan', function () {
-    return view('user/ajukan');
-});
+
 Route::get('/status', function () {
     return view('user/status');
 });
@@ -32,10 +30,6 @@ Route::get('/history', function () {
 });
 Route::get('/profile', function () {
     return view('user/profile');
-});
-
-Route::get('/dashboard', function () {
-    return view('admin/dashboard');
 });
 Route::get('/tabel-fasilitas', function () {
     return view('admin/fasilitas');
@@ -55,3 +49,14 @@ Route::get('/user', function () {
 Route::get('/profile-admin', function () {
     return view('admin/profile');
 });
+
+
+Route::get('/', [LoginController::class, 'loginPage'])->name('loginPage');;
+Route::post('login', [LoginController::class, 'login'])->name('login');
+Route::get('logout', [LoginController::class, 'logout'])->name('logout');
+Route::get('dashboard', [LoginController::class, 'dashboard'])->name('dashboard')->middleware('is_admin');
+Route::resource('fasilitas', FasilitasController::class);
+Route::resource('peminjaman', PeminjamanController::class);
+Route::get('user/fasilitas', [LoginController::class,'userFasilitas'])->name('user.fasilitas');
+Route::get('/status', [PeminjamanController::class,'statusPeminjaman'])->name('user.status');
+Route::get('/history', [PeminjamanController::class,'historyPeminjaman'])->name('user.history');
