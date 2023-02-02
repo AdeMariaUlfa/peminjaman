@@ -28,6 +28,9 @@ Route::get('/profile', function () {
 Route::get('/profile-admin', function () {
     return view('admin/profile');
 });
+Route::get('/tambah-fasilitas', function () {
+    return view('admin.tambah-fasilitas');
+});
 
 
 Route::get('/', [LoginController::class, 'loginPage'])->name('loginPage');;
