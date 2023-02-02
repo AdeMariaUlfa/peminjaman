@@ -34,21 +34,22 @@
                   <p class="mb-0">Masukkan email dan password anda!</p>
                 </div>
                 <div class="card-body">
-                  <form role="form">
+                  <form role="form" action="{{route('register')}}" method="post">
+                  @csrf
                     <label>Nama Lengkap</label>
                     <div class="mb-3">
-                      <input type="text" class="form-control" placeholder="Nama Lengkap" aria-label="Nama" aria-describedby="email-addon">
+                      <input type="text" class="form-control" name="nama" placeholder="Nama Lengkap" aria-label="Nama" aria-describedby="email-addon">
                     </div>
                     <label>Email</label>
                     <div class="mb-3">
-                      <input type="email" class="form-control" placeholder="Email" aria-label="Email" aria-describedby="email-addon">
+                      <input type="email" class="form-control" name="email" placeholder="Email" aria-label="Email" aria-describedby="email-addon">
                     </div>
                     <label>Password</label>
                     <div class="mb-3">
-                      <input type="email" class="form-control" placeholder="Password" aria-label="Password" aria-describedby="password-addon">
+                      <input type="password" class="form-control" name="password" placeholder="Password" aria-label="Password" aria-describedby="password-addon">
                     </div>
                     <div class="text-center">
-                      <button type="button" class="btn bg-gradient-info w-100 mt-4 mb-0">Registrasi</button>
+                      <button type="submit" class="btn bg-gradient-info w-100 mt-4 mb-0">Registrasi</button>
                     </div>
                   </form>
                 </div>

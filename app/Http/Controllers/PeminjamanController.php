@@ -16,8 +16,8 @@ class PeminjamanController extends Controller
      */
     public function index()
     {
-        $data = peminjaman::all();
-        return view('admin.rekap', compact('data'));
+        $data = peminjaman::with('fasilitas')->whereNotIn('status', ['selesai'])->get();
+        return view('admin.pengajuan', compact('data'));
     }
     public function peminjamaUser()
     {
@@ -48,28 +48,36 @@ class PeminjamanController extends Controller
         $request->validate([
             'nama' => 'required',
             'nim' => 'required',
+            'jurusan' => 'required',
             'fasilitas' => 'required',
             'noWa' => 'required',
             'alamat' => 'required',
             'tujuan' => 'required',
             'tanggalPinjam' => 'required',
             'tanggalSelesai' => 'required',
+            'suratPermohonan' => 'required'
         ]);
+
+        $file = $request->file('suratPermohonan');
+        $nama_file = time() . "_" . $file->getClientOriginalName();
+        $file->move('suratPermohonan', $nama_file);
 
         peminjaman::create([
             'nama' => $request->input('nama'),
             'nim' => $request->input('nim'),
+            'jurusan' => $request->input('jurusan'),
             'idFasilitas' =>  $request->input('fasilitas'),
             'idUser' => $request->input('idUser'),
             'alamat' => $request->input('alamat'),
             'tujuan' => $request->input('tujuan'),
-            'status' => 'waiting',
+            'status' => 'tunggu',
             'noWa' => $request->input('noWa'),
             'tanggalPinjam' => $request->input('tanggalPinjam'),
             'tanggalSelesai' => $request->input('tanggalSelesai'),
+            'suratPermohonan' => $nama_file,
 
         ]);
-        return redirect()->route('peminjaman.index');
+        return redirect()->route('user.status');
     }
 
     /**
@@ -119,14 +127,54 @@ class PeminjamanController extends Controller
 
     public function statusPeminjaman()
     {
-        $data = peminjaman::with('fasilitas')->where('idUser', Auth::user()->id)->get();
-
-
+        $data = peminjaman::with('fasilitas')->where('idUser', Auth::user()->id)->whereNotIn('status', ['selesai'])->get();
         return view('user.status', compact('data'));
     }
     public function historyPeminjaman()
     {
-        $data = peminjaman::with('fasilitas')->where('idUser', Auth::user()->id)->get();
+        $data = peminjaman::with('fasilitas')->where('idUser', Auth::user()->id)->where('status', 'selesai')->get();
         return view('user.history', compact('data'));
+    }
+    public function rekapAdmin()
+    {
+        $data = peminjaman::with('fasilitas')->where('status', 'selesai')->get();
+        return view('admin.rekap', compact('data'));
+    }
+    public function setuju(peminjaman $peminjaman)
+    {
+        $data = peminjaman::find($peminjaman->id);
+        $fasilitas = fasilitas::find($peminjaman->idFasilitas);
+        $tambah = $fasilitas->sisa + 1;
+        $fasilitas->update([
+            'sisa' => $tambah
+        ]);
+        $data->update([
+            'status' => 'setuju'
+        ]);
+        return redirect()->route('peminjaman.index');
+    }
+    public function tolak(peminjaman $peminjaman)
+    {
+        $peminjaman = peminjaman::find($peminjaman->id);
+
+        $peminjaman->update([
+            'status' => 'tolak'
+        ]);
+
+
+        return redirect()->route('peminjaman.index');
+    }
+    public function selesai(peminjaman $peminjaman)
+    {
+        $data = peminjaman::find($peminjaman->id);
+        $fasilitas = fasilitas::find($peminjaman->idFasilitas);
+        $data->update([
+            'status' => 'selesai'
+        ]);
+        $kurang = $fasilitas->sisa - 1;
+        $fasilitas->update([
+            'sisa' => $kurang
+        ]);
+        return redirect()->back();
     }
 }

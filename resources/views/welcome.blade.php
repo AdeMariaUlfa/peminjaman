@@ -52,7 +52,7 @@
                 <div class="card-footer text-center pt-0 px-lg-2 px-1">
                   <p class="mb-4 text-sm mx-auto">
                     Tidak mempunyai akun?
-                    <a href="/register" class="text-info text-gradient font-weight-bold">Registrasi</a>
+                    <a href="/registerPage" class="text-info text-gradient font-weight-bold">Registrasi</a>
                   </p>
                 </div>
               </div>

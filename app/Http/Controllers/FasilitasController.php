@@ -14,13 +14,13 @@ class FasilitasController extends Controller
      */
     public function index()
     {
-        $data=fasilitas::all();
-        return view('admin.fasilitas',compact('data'));
+        $data = fasilitas::all();
+        return view('admin.fasilitas', compact('data'));
     }
     public function userFasilitas()
     {
-        $data=fasilitas::all();
-        return view('user.fasilitas',compact('data'));
+        $data = fasilitas::all();
+        return view('user.fasilitas', compact('data'));
     }
 
     /**
@@ -56,6 +56,7 @@ class FasilitasController extends Controller
             'nama' => $request->input('nama'),
             'detail' => $request->input('detail'),
             'img' => $nama_file,
+            'sisa' => 0,
             'stok' => $request->input('stok'),
 
         ]);
@@ -68,9 +69,9 @@ class FasilitasController extends Controller
      * @param  \App\Models\fasilitas  $fasilitas
      * @return \Illuminate\Http\Response
      */
-    public function show(fasilitas $fasilitas)
+    public function show(fasilitas $fasilita)
     {
-       
+        return view('admin.detailFasilitas',compact('fasilita'));
     }
 
     /**
@@ -81,7 +82,7 @@ class FasilitasController extends Controller
      */
     public function edit(fasilitas $fasilita)
     {
-        return view('admin.edit-fasilitas',compact('fasilita'));
+        return view('admin.edit-fasilitas', compact('fasilita'));
     }
 
     /**
@@ -91,9 +92,36 @@ class FasilitasController extends Controller
      * @param  \App\Models\fasilitas  $fasilitas
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, fasilitas $fasilitas)
+    public function update(Request $request, fasilitas $fasilita)
     {
-        //
+        $request->validate([
+            'nama' => 'required',
+            'detail' => 'required',
+            'stok' => 'required',
+        ]);
+
+        $file = $request->file('img');
+        $fasilitas = fasilitas::findOrFail($fasilita->id);
+        if ($file != null) {
+            $nama_file = time() . "_" . $file->getClientOriginalName();
+            $file->move('fasilitasImg', $nama_file);
+
+
+
+            $fasilitas->update([
+                'nama' => $request->input('nama'),
+                'detail' => $request->input('detail'),
+                'img' => $nama_file,
+                'stok' => $request->input('stok'),
+            ]);
+        } else {
+            $fasilitas->update([
+                'nama' => $request->input('nama'),
+                'detail' => $request->input('detail'),
+                'stok' => $request->input('stok'),
+            ]);
+        }
+        return redirect()->route('fasilitas.index');
     }
 
     /**

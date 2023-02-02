@@ -16,7 +16,7 @@ class UserSeeder extends Seeder
      */
     public function run()
     {
-        User::create(
+        $user = [
             [
                 'name' => 'Admin',
                 'email' => 'admin@gmail.com',
@@ -29,6 +29,9 @@ class UserSeeder extends Seeder
                 'password' => Hash::make('user123'),
                 'is_admin' => 0,
             ]
-        );
+        ];
+        foreach ($user as $key => $value) {
+            User::create($value);
+        }
     }
 }

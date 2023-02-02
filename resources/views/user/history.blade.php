@@ -32,7 +32,7 @@
             <p class="text-xs font-weight-bold mb-0">{{$d->fasilitas->first()->nama}}</p>
           </td>
           <td class="align-middle text-center text-sm">
-            <span class="badge badge-sm bg-gradient-success">{{$d->status}}</span>
+            <span class="badge badge-sm bg-gradient-warning">{{$d->status}}</span>
           </td>
           <td class="align-middle text-center">
             <span class="text-secondary text-xs font-weight-bold">{{$d->tanggalPinjam}}</span>

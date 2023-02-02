@@ -11,7 +11,7 @@
           <h4>Edit Fasilitas</h4>
         </div><br>
         <div class="card-body">
-          <form role="form" action="{{ route('fasilitas.update',$fasilita->id) }}" method="post" enctype="multipart/form-data">
+          <form role="form" action="{{ route('fasilitas.update',$fasilita) }}" method="post" enctype="multipart/form-data">
             @csrf
             @method('PUT')
             <label>Nama*</label>

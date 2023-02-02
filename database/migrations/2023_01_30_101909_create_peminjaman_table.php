@@ -17,12 +17,14 @@ class CreatePeminjamanTable extends Migration
             $table->id();
             $table->string('nama');
             $table->string('nim');
+            $table->string('jurusan');
             $table->unsignedBigInteger('idFasilitas');
             $table->unsignedBigInteger('idUser');
             $table->string('noWa');
             $table->text('alamat');
             $table->text('tujuan');
             $table->string('status');
+            $table->string('suratPermohonan');
             $table->date('tanggalPinjam');
             $table->date('tanggalSelesai');
             $table->timestamps();

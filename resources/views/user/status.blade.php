@@ -31,10 +31,26 @@
             <p class="text-xs font-weight-bold mb-0">{{$d->fasilitas->first()->nama}}</p>
           </td>
           <td class="align-middle text-center text-sm">
+            @if($d->status == 'setuju')
             <span class="badge badge-sm bg-gradient-success">{{$d->status}}</span>
+            @endif
+            @if($d->status == 'tolak')
+            <span class="badge badge-sm bg-gradient-danger">{{$d->status}}</span>
+            @endif
+            @if($d->status == 'tunggu')
+            <span class="badge badge-sm bg-gradient-secondary">{{$d->status}}</span>
+            @endif
+            @if($d->status == 'selesai')
+            <span class="badge badge-sm bg-gradient-warning">{{$d->status}}</span>
+            @endif
           </td>
           <td class="align-middle text-center">
             <span class="text-secondary text-xs font-weight-bold">{{$d->tanggalPinjam}}</span>
+          </td>
+          <td class="align-middle text-center text-sm">
+            @if($d->status == 'setuju')
+            <a class="badge badge-sm bg-gradient-warning" href="{{route('user.selesai',$d)}}">selesai</a>
+            @endif
           </td>
         </tr>
         @endforeach

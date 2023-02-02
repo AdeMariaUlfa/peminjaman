@@ -12,30 +12,9 @@
           <div class="row">
             <div class="col-8">
               <div class="numbers">
-                <p class="text-sm mb-0 text-capitalize font-weight-bold">Data Barang</p>
+                <p class="text-sm mb-0 text-capitalize font-weight-bold">Total Fasilitas</p>
                 <h5 class="font-weight-bolder mb-0">
-                  11
-                </h5>
-              </div>
-            </div>
-            <div class="col-4 text-end">
-              <div class="icon icon-shape bg-gradient-primary shadow text-center border-radius-md">
-                <i class="ni ni-money-coins text-lg opacity-10" aria-hidden="true"></i>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="col-xl-3 col-sm-6 mb-xl-0 mb-4">
-      <div class="card">
-        <div class="card-body p-3">
-          <div class="row">
-            <div class="col-8">
-              <div class="numbers">
-                <p class="text-sm mb-0 text-capitalize font-weight-bold">Total Barang</p>
-                <h5 class="font-weight-bolder mb-0">
-                  59
+                  {{$data['fasilitasCount']}}
                 </h5>
               </div>
             </div>
@@ -56,28 +35,7 @@
               <div class="numbers">
                 <p class="text-sm mb-0 text-capitalize font-weight-bold">Total Peminjam</p>
                 <h5 class="font-weight-bolder mb-0">
-                  15
-                </h5>
-              </div>
-            </div>
-            <div class="col-4 text-end">
-              <div class="icon icon-shape bg-gradient-primary shadow text-center border-radius-md">
-                <i class="ni ni-paper-diploma text-lg opacity-10" aria-hidden="true"></i>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="col-xl-3 col-sm-6">
-      <div class="card">
-        <div class="card-body p-3">
-          <div class="row">
-            <div class="col-8">
-              <div class="numbers">
-                <p class="text-sm mb-0 text-capitalize font-weight-bold">Barang Dipinjam</p>
-                <h5 class="font-weight-bolder mb-0">
-                  20
+                  {{$data['peminjamanCount']}}
                 </h5>
               </div>
             </div>
@@ -90,10 +48,32 @@
         </div>
       </div>
     </div>
+    <div class="col-xl-3 col-sm-6">
+      <div class="card">
+        <div class="card-body p-3">
+          <div class="row">
+            <div class="col-8">
+              <div class="numbers">
+                <p class="text-sm mb-0 text-capitalize font-weight-bold">History Pinjam</p>
+                <h5 class="font-weight-bolder mb-0">
+                  {{$data['historyCount']}}
+                </h5>
+              </div>
+            </div>
+            <div class="col-4 text-end">
+              <div class="icon icon-shape bg-gradient-primary shadow text-center border-radius-md">
+                <i class="ni ni-paper-diploma text-lg opacity-10" aria-hidden="true"></i>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
   </div>
   <div class="row mt-4">
 
-    @foreach($fasilitas as $f)
+    @foreach($data['fasilitas'] as $f)
     <div class="col-lg-6 mb-lg-0 mb-4 pt-4">
       <div class="card">
         <div class="card-body p-3">
@@ -103,8 +83,8 @@
               <div class="d-flex flex-column h-100">
                 <h5 class="font-weight-bolder">{{$f->nama}}</h5>
                 <p class="mb-5">{{$f->detail}}</p>
-                <a class="text-body text-sm font-weight-bold mb-0 icon-move-right mt-auto" href="javascript:;">
-                  Sisa : {{$f->stok}}
+                <a class="text-body text-sm font-weight-bold mb-0 icon-move-right mt-auto" href="{{route('fasilitas.show',$f)}}">
+                  Terisi : {{$f->stok}} / {{$f->sisa}}
                   <i class="fas fa-arrow-right text-sm ms-1" aria-hidden="true"></i>
                 </a>
               </div>

@@ -6,7 +6,7 @@
       <h4>Form Ajukan Peminjaman Fasilitas</h4>
     </div><br>
     <div class="card-body">
-      <form role="form" action="{{route('peminjaman.store')}}" method="post">
+      <form role="form" action="{{route('peminjaman.store')}}" method="post" enctype="multipart/form-data">
         @csrf
         <label>Nama Lengkap*</label>
         <input type="hidden" value="{{Auth::user()->id}}" name="idUser">
@@ -30,7 +30,9 @@
         <div class="mb-3">
           <select name="fasilitas" class="form-control">
             @foreach($fasilitas as $f)
+            @if($f->sisa < $f->stok)
             <option value="{{$f->id}}">{{$f->nama}}</option>
+            @endif
             @endforeach
           </select>
         </div>
@@ -54,6 +56,10 @@
         <div class="mb-3">
           <textarea rows="5" cols="80" type="text" class="form-control" placeholder="Tujuan Peminjaman" name="tujuan"></textarea>
         </div>
+        <label>Surat Persetujuan*</label>
+            <div class="mb-3">
+              <input type="file" name="suratPermohonan">
+            </div>
         <div class="text-center">
           <button type="submit" class="btn bg-gradient-info w-100 mt-4 mb-0">AJUKAN PEMINJAMAN</button>
         </div>
