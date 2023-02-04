@@ -84,7 +84,10 @@
                 <h5 class="font-weight-bolder">{{$f->nama}}</h5>
                 <p class="mb-5">{{$f->detail}}</p>
                 <a class="text-body text-sm font-weight-bold mb-0 icon-move-right mt-auto" href="{{route('fasilitas.show',$f)}}">
-                  Terisi : {{$f->stok}} / {{$f->sisa}}
+                  <div class="mb-1">
+                    Terisi : {{$f->stok}} / {{$f->sisa}}
+                  </div>
+                  Jam Oprasional : {{\Carbon\Carbon::createFromFormat('H:i:s',$f->jamMulai)->format('H:i')}} - {{\Carbon\Carbon::createFromFormat('H:i:s',$f->jamSelesai)->format('H:i')}}
                   <i class="fas fa-arrow-right text-sm ms-1" aria-hidden="true"></i>
                 </a>
               </div>

@@ -18,6 +18,9 @@
                 <div class="d-flex flex-column h-100">
                   <img src="{{ asset('fasilitasImg/'.$fasilita->img) }}" style="padding-bottom: 20px;" alt="">
                   <p class="mb-5">{{$fasilita->detail}}</p>
+                  <p class="mb-1">
+                  Jam Oprasional : {{\Carbon\Carbon::createFromFormat('H:i:s',$fasilita->jamMulai)->format('H:i')}} - {{\Carbon\Carbon::createFromFormat('H:i:s',$fasilita->jamSelesai)->format('H:i')}}
+                  </p>
                   Terisi : {{$fasilita->stok}} / {{$fasilita->sisa}}
                   </a>
                 </div>

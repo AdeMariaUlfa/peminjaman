@@ -21,6 +21,21 @@
             <div class="mb-3">
               <textarea rows="5" cols="80" type="text" name="detail" class="form-control" placeholder="Detail Fasilitas" aria-label="Nama" aria-describedby="email-addon"></textarea>
             </div>
+            <div class="row">
+              <div class="col-2">
+                <label>Jam Mulai*</label>
+                <div class="mb-3">
+                  <input type="time" class="form-control" name="jamMulai" placeholder="Jam Mulai">
+                </div>
+              </div>
+              <div class="col-2">
+                <label>Jam Selesai*</label>
+                <div class="mb-3">
+                  <input type="time" class="form-control" name="jamSelesai" placeholder="Jam Mulai">
+                </div>
+              </div>
+            </div>
+
             <label>Choose a picture*</label>
             <div class="mb-3">
               <input type="file" name="img" accept="image/png, image/jpeg">

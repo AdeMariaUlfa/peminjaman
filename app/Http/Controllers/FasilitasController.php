@@ -46,6 +46,8 @@ class FasilitasController extends Controller
             'detail' => 'required',
             'img' => 'required',
             'stok' => 'required',
+            'jamMulai' => 'required',
+            'jamSelesai' => 'required',
         ]);
 
         $file = $request->file('img');
@@ -56,6 +58,8 @@ class FasilitasController extends Controller
             'nama' => $request->input('nama'),
             'detail' => $request->input('detail'),
             'img' => $nama_file,
+            'jamMulai' => $request->input('jamMulai'),
+            'jamSelesai' => $request->input('jamSelesai'),
             'sisa' => 0,
             'stok' => $request->input('stok'),
 

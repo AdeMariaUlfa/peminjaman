@@ -6,6 +6,8 @@ use App\Models\fasilitas;
 use App\Models\peminjaman;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Barryvdh\DomPDF\Facade\Pdf;
+
 
 class PeminjamanController extends Controller
 {
@@ -176,5 +178,16 @@ class PeminjamanController extends Controller
             'sisa' => $kurang
         ]);
         return redirect()->back();
+    }
+    public function downloadPdf()
+    {
+        $data = [
+            'title' => 'Rekap Data Peminjaman',
+            'data' => peminjaman::with('fasilitas')->get(),
+        ];
+          
+        $pdf = Pdf::loadView('rekapPDF', $data);
+    
+        return $pdf->download('rekap.pdf');
     }
 }

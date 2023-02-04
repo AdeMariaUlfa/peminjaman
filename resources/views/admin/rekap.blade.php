@@ -8,6 +8,11 @@
     <div class="card-header pb-0 text-center">
       <h4>Tabel Rekap Peminjaman Fasilitas</h4>
     </div><br>
+    <div class="row">
+      <div class="mb-2 col-2 p-4">
+        <a href="{{route('downloadPdf')}}" class="badge badge-sm bg-gradient-primary">Download Rekap</a>
+      </div>
+    </div>
     <table class="table align-items-center mb-0">
       <thead>
         <tr>

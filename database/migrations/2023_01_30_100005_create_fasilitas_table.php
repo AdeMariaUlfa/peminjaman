@@ -18,6 +18,8 @@ class CreateFasilitasTable extends Migration
             $table->string('nama');
             $table->text('detail');
             $table->string('img');
+            $table->time('jamMulai');
+            $table->time('jamSelesai');
             $table->integer('stok');
             $table->integer('sisa');
             $table->timestamps();

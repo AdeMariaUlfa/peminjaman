@@ -23,10 +23,10 @@ Route::get('/registerPage', function () {
 });
 
 Route::get('/profile', function () {
-    return view('user/profile');
+    return view('user.profile');
 });
 Route::get('/profile-admin', function () {
-    return view('admin/profile');
+    return view('admin.profile');
 });
 Route::get('/tambah-fasilitas', function () {
     return view('admin.tambah-fasilitas');
@@ -48,3 +48,4 @@ Route::get('/user', [LoginController::class, 'allUser'])->name('admin.user');
 Route::get('/setuju/{peminjaman}', [PeminjamanController::class, 'setuju'])->name('admin.setuju');
 Route::get('/tolak/{peminjaman}', [PeminjamanController::class, 'tolak'])->name('admin.tolak');
 Route::get('/selesai/{peminjaman}', [PeminjamanController::class, 'selesai'])->name('user.selesai');
+Route::get('generate-pdf', [PeminjamanController::class, 'downloadPdf'])->name('downloadPdf');
