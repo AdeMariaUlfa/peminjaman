@@ -1,4 +1,5 @@
 @extends('layouts.template-admin')
+@section('title', 'Detail Fasilitas')
 @section('content')
 <!-- Navbar -->
 

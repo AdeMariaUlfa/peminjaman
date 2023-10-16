@@ -1,64 +1,85 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400"></a></p>
+# Website Peminjaman Fasilitas
 
-<p align="center">
-<a href="https://travis-ci.org/laravel/framework"><img src="https://travis-ci.org/laravel/framework.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+Website Peminjaman Fasilitas adalah portal peminjaman fasilitas yang memudahkan Anda untuk mengakses dan memanfaatkan berbagai fasilitas dengan cepat dan efisien. Di sini, kami menyediakan platform yang ramah pengguna untuk mempermudah proses peminjaman ruang pertemuan, peralatan, kendaraan, dan fasilitas lainnya sesuai kebutuhan Anda.
 
-## About Laravel
+Proyek ini dibangun dengan menggunakan Laravel, Boostrap, dan Mysql untuk manajemen database.
+## Teknologi Yang Digunakan 
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+Framework : Laravel, Boostrap
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+Database : Mysql
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+## Screenshoot
 
-## Learning Laravel
+### Admin
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+![Halaman Login](img/ss-login.png)
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains over 1500 video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+![Halaman Dashboard](img/ss-dashboard-admin.png)
 
-## Laravel Sponsors
+![Halaman Pengajuan](img/ss-pengajuan.png)
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the Laravel [Patreon page](https://patreon.com/taylorotwell).
+![Halaman Rekap](img/ss-rekap.png)
 
-### Premium Partners
+### User
 
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Cubet Techno Labs](https://cubettech.com)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[Many](https://www.many.co.uk)**
-- **[Webdock, Fast VPS Hosting](https://www.webdock.io/en)**
-- **[DevSquad](https://devsquad.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel/)**
-- **[OP.GG](https://op.gg)**
-- **[WebReinvent](https://webreinvent.com/?utm_source=laravel&utm_medium=github&utm_campaign=patreon-sponsors)**
-- **[Lendio](https://lendio.com)**
+![Halaman Fasilitas User](img/ss-fasilitas-user.png)
 
-## Contributing
+![Halaman Pengajuan User](img/ss-pengajuan-user.png)
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+![Halaman Peminjaman User](img/ss-status-peminjaman-user.png)
 
-## Code of Conduct
+![Halaman History User](img/ss-history-user.png)
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+## Prasyarat
 
-## Security Vulnerabilities
+Pastikan Anda telah menginstal [Laravel](https://laravel.com/) dan [Composer](https://getcomposer.org/) di sistem Anda sebelum menjalankan proyek ini.
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+## Instalasi
 
-## License
+1. Clone repositori ini:
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+   ```bash
+   git clone https://github.com/AdeMariaUlfa/peminjaman.git
+   ```
+   
+2. Masuk ke direktori proyek:
+
+   ```bash
+   cd peminjaman
+   ```
+
+3. Salin file .env.example menjadi .env dan sesuaikan pengaturan database:
+
+   ```bash
+   cp .env.example .env
+   ```
+
+4. Jalankan perintah berikut untuk menginstal dependensi:
+
+   ```bash
+   composer install
+   ```
+
+5. Install dependensi JavaScript menggunakan npm:
+
+   ```bash
+   npm install
+   ```
+
+6. Generate key aplikasi Laravel:
+
+   ```bash
+   php artisan key:generate
+   ```
+7. Migrasi dan isi database dengan perintah berikut:
+
+   ```bash
+   php artisan migrate --seed
+   ```
+
+8. Jalankan server pengembangan Laravel
+
+   ```bash
+   php artisan serve
+   ```

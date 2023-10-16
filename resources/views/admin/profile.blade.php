@@ -1,4 +1,5 @@
 @extends('layouts.template-admin')
+@section('title', 'Profile')
 @section('content')
 <div class="card">
 

@@ -1,4 +1,5 @@
 @extends('layouts.template')
+@section('title', 'Profile')
 @section('content')  
 <div class="card">
     <!-- End Navbar -->

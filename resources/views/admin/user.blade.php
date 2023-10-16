@@ -1,4 +1,5 @@
 @extends('layouts.template-admin')
+@section('title', 'User')
 @section('content')
 <!-- Navbar -->
 

@@ -1,4 +1,5 @@
 @extends('layouts.template')
+@section('title', 'Pengajuan')
 @section('content')
 <div class="container-fluid py-4">
   <div class="card mb-4">
